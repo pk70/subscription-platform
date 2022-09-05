@@ -28,15 +28,12 @@ class SendPostNotification implements ShouldQueue
      */
     public function handle(PostCreated $event)
     {
-        $getSubscriber=\App\Models\Subscriber::where('id_website',$event->request->id_website)->get();
 
-foreach ($getSubscriber as $key => $user) {
-    print_r($user->email);
-    // Mail::to($user->email)
-    // ->send(new NewPostCreated($event));
-}
+        $getSubscriber = \App\Models\Subscriber::where('id_website', $event->request->id_website)->get();
 
-
-
+        foreach ($getSubscriber as $key => $user) {
+            Mail::to($user->email)
+                ->send(new NewPostCreated($event));
+        }
     }
 }

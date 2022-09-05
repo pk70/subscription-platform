@@ -26,4 +26,5 @@
 
 ### work flow for new post email sending
 * when a new post created an event will fire and send email through listner.
+* php artisan queue:retry all for queue faild jobs.
 

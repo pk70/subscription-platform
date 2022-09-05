@@ -16,8 +16,7 @@ class PostObserver
      */
     public function created(WebsitePost $websitePost)
     {
-        //event(new PostCreated($websitePost));
-        PostCreated::dispatch($websitePost);
+        event(new PostCreated($websitePost));
 
     }
 
