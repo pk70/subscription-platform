@@ -9,7 +9,15 @@ use App\Http\Controllers\Api\BaseController;
 
 class PostController extends BaseController
 {
-    public function create(Request $request){
+
+    /**
+     * Create the specified resource.
+     *
+     * @param  Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'id_website' => 'required|integer|exists:website,id_website',
@@ -20,16 +28,14 @@ class PostController extends BaseController
             return $this->sendError('error.', $validator->errors());
         }
 
-         /*--store data in databse--*/
-         try {
+        /*--store data in databse--*/
+        try {
 
-            $storeData=\App\Models\WebsitePost::create($request->all());
-            return $this->sendResponse($storeData,'Success');
-
+            $storeData = \App\Models\WebsitePost::create($request->all());
+            return $this->sendResponse($storeData, 'Success');
         } catch (\Exception $th) {
             return $this->sendError('error.', $th->getMessage());
             throw $th->getMessage();
         }
-
     }
 }

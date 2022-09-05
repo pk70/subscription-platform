@@ -15,5 +15,6 @@ class Website extends Model
      * @var string
      */
     protected $table = 'website';
+    protected $primary = 'id_website';
     protected $guarded = ['id_website'];
 }

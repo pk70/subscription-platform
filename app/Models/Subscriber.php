@@ -15,5 +15,7 @@ class Subscriber extends Model
      * @var string
      */
     protected $table = 'subscriber';
+    protected $primary = 'id_subscriber';
     protected $guarded = ['id_subscriber'];
+    protected $hidden=['id'];
 }

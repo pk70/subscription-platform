@@ -17,4 +17,5 @@ class WebsitePost extends Model
     protected $table = 'website_post';
     protected $primaryKey='id_post';
     protected $guarded = ['id_post'];
+    protected $hidden=['id'];
 }

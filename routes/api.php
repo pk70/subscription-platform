@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+/*--create post under website---*/
 Route::post('v1/create_post', [\App\Http\Controllers\Api\PostController::class, 'create'])->name('postCreate.api');;
-Route::post('v1/create_website', [App\Http\Controllers\Api\WebsiteController::class, 'create'])->name('websiteCreate.api');
+
+/*--create website website---*/
+// Route::post('v1/create_website', [App\Http\Controllers\Api\WebsiteController::class, 'create'])->name('websiteCreate.api');
+
+/*--create subscriber for specific website---*/
 Route::post('v1/create_subscriber', [App\Http\Controllers\Api\SubscriberController::class, 'create'])->name('subscriberCreate.api');
